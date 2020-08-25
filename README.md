@@ -56,7 +56,7 @@ OR
 
 The API will return three error types when requests fail:
 | Error        | Message         |   description
-| ------------- |:-------------: | 
+| ------------- |:-------------: | -------------
 | 400     | bad request    |
 | 401     | access_denied | you do not have permission
 | 401     | invalid_header | Authorization header is expected
