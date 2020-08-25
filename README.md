@@ -4,7 +4,7 @@
 The Casting Agency models a company that is responsible for creating movies and managing and assigning actors to those movies.
 This is the capstone project for Full-stack development Nanodegree 🌟🌟
 
-### Getting Started Localy
+## Getting Started Localy
 1. Clone repo `https://github.com/morojAlh/Casting-Agency.git`
 2. Naviging to `/Casting-Agency` folder
 3. Install all of the required packages 
@@ -35,7 +35,7 @@ python3 test_app.py
 # API Referance 
 ### API is hosted live via 
 
-### Error Handling
+## Error Handling
 
 Errors are returned as JSON objects in the following format:
 
@@ -63,10 +63,10 @@ The API will return three error types when requests fail:
 | 404    | resource not found   |
 | 422 | unprocssable     |
 
-### Endpoints
-### Movies
+## Endpoints
+## Movies
 
-#### GET /movies
+### GET /movies
 Returns a list of movies objects and success value.
 
 **Request:** 
@@ -87,7 +87,7 @@ Returns a list of movies objects and success value.
 
 ```
 
-#### POST /movies
+### POST /movies
 Create a new movie and return object of the new one and success value.
 
 **Request:** 
@@ -106,7 +106,7 @@ Create a new movie and return object of the new one and success value.
 }
 ```
 
-#### PATCH /movies/<movie_id>
+### PATCH /movies/<movie_id>
 Update a movie and return object of the updated one and success value.
 
 **Request:** 
@@ -126,7 +126,7 @@ Update a movie and return object of the updated one and success value.
 ```
 
 
-#### DELETE /movies/<movie_id>
+### DELETE /movies/<movie_id>
 Delete a movie and return list of movies objects and success value.
 
 **Request:** 
@@ -150,9 +150,9 @@ Delete a movie and return list of movies objects and success value.
 
 
 
-### Actors
+## Actors
 
-#### GET /actors
+### GET /actors
 Returns a list of actors objects and success value.
 
 **Request:** 
@@ -174,7 +174,7 @@ Returns a list of actors objects and success value.
 
 ```
 
-#### POST /actors
+### POST /actors
 Create a new actors and return object of the new one and success value.
 
 **Request:** 
@@ -194,7 +194,7 @@ Create a new actors and return object of the new one and success value.
 }
 ```
 
-#### PATCH /actors/<actor_id>
+### PATCH /actors/<actor_id>
 Update a actor and return object of the updated one and success value.
 
 **Request:** 
@@ -215,7 +215,7 @@ Update a actor and return object of the updated one and success value.
 ```
 
 
-#### DELETE /actors/<actor_id>
+### DELETE /actors/<actor_id>
 Delete a actors and return list of actors objects and success value.
 
 **Request:** 
