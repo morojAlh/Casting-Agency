@@ -234,6 +234,8 @@ Delete a actors and return list of actors objects and success value.
       "name": "Brad Pitt"
     }
   ],
+  "success": true
+}
   
 ```
 
