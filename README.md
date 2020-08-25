@@ -5,7 +5,7 @@ The Casting Agency models a company that is responsible for creating movies and 
 This is the capstone project for Full-stack development Nanodegree 🌟🌟
 
 ### Getting Started Localy
-1. Clone repo this project
+1. Clone repo `https://github.com/morojAlh/Casting-Agency.git`
 2. Naviging to `/Casting-Agency` folder
 3. Install all of the required packages 
     ```bash
