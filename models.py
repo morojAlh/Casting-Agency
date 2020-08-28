@@ -3,8 +3,8 @@ from sqlalchemy import Column, String, DateTime, Integer, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-# database_path = os.environ.get("DATABASE_URL", "postgres://postgres@localhost:5432/casting_agency")
-database_path = os.environ.get("DATABASE_URL", "postgres://xzkklzlapkrcvr:e758762e9287fe1289f2fda6785c5cf924ddfd632ba1e57e89f7c2ab9620b249@ec2-54-236-146-234.compute-1.amazonaws.com:5432/d8fof9gprovnvq")
+database_path = os.environ.get("DATABASE_URL", "postgres://postgres@localhost:5432/casting_agency")
+# database_path = os.environ.get("DATABASE_URL", "postgres://xzkklzlapkrcvr:e758762e9287fe1289f2fda6785c5cf924ddfd632ba1e57e89f7c2ab9620b249@ec2-54-236-146-234.compute-1.amazonaws.com:5432/d8fof9gprovnvq")
 
 
 db = SQLAlchemy()
