@@ -14,18 +14,13 @@ def create_app(test_config=None):
 
   # db_drop_and_create_all()
 
-  # Movies
+
+  # ----- Movies -----
   # GET
   @app.route('/movies')
   @requires_auth('get:movie')
   def retrieve_movies(token):
     all_movies = Movie.query.order_by(Movie.id).all()
-    # categoriesObject = {}
-    # for category in categories:
-    #   categoriesObject[category.id] = category.type
-
-    # if len(all_movies) == 0:
-    #   abort(404)
 
     movies = []
     for movie in all_movies:
@@ -36,12 +31,11 @@ def create_app(test_config=None):
       'movies': movies
     })
 
+
   # DELETE
   @app.route('/movies/<int:movie_id>', methods=['DELETE'])
   @requires_auth('delete:movie')
   def delete_movie(token,movie_id):
-
-    # try:
     movie = Movie.query.filter(Movie.id == movie_id).one_or_none()
     if movie is None:
       abort(404)
@@ -57,17 +51,12 @@ def create_app(test_config=None):
       'movies': movies
     })
 
-    # except:
-    #   abort(422)
 
   # POST
   @app.route('/movies', methods=['POST'])
   @requires_auth('post:movie')
   def create_movie(token):
     body = request.get_json()
-    # print(body)
-    # try:
-      # print('hi')
     movie = Movie(
       title=body.get('title', None),
       release_date=body.get('release_date', None)
@@ -79,15 +68,13 @@ def create_app(test_config=None):
       'movie': movie.format(),
     })
 
-    # except:
-    #   abort(422)
 
   # UPDATE
   @app.route('/movies/<int:movie_id>', methods=['PATCH'])
   @requires_auth('patch:movie')
   def update_movie(token, movie_id):
     body = request.get_json()
-    # try:
+    
     movie = Movie.query.filter(Movie.id == movie_id).one_or_none()
     if movie is None:
       abort(404)
@@ -97,45 +84,34 @@ def create_app(test_config=None):
 
     movie.update()
 
-    # movies = []
-    # for movie in Movie.query.order_by(Movie.id).all():
-    #   movies.append(movie.format())
-
     return jsonify({
       'success': True,
       'movie': movie.format()
     })
 
-    # except:
-    #   abort(422)
 
 
-  # Actors
+  # ----- Actors -----
   # GET
   @app.route('/actors')
   @requires_auth('get:actor')
   def retrieve_actors(token):
     all_actors = Actor.query.order_by(Actor.id).all()
 
-    # if len(all_actors) == 0:
-    #   abort(404)
-
     actors = []
     for actor in all_actors:
         actors.append(actor.format())
   
-
     return jsonify({
       'success': True,
       'actors': actors
     })
 
+
   # DELETE
   @app.route('/actors/<int:actor_id>', methods=['DELETE'])
   @requires_auth('delete:actor')
   def delete_actor(token, actor_id):
-
-    # try:
     actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
     if actor is None:
       abort(404)
@@ -151,8 +127,6 @@ def create_app(test_config=None):
       'actors': actors
     })
 
-    # except:
-    #   abort(422)
 
   # POST
   @app.route('/actors', methods=['POST'])
@@ -160,7 +134,6 @@ def create_app(test_config=None):
   def create_actor(token):
     body = request.get_json()
     
-    # try:
     actor = Actor(
       name=body.get('name', None),
       age=body.get('age', None),
@@ -174,15 +147,13 @@ def create_app(test_config=None):
       'actor': actor.format()
     })
 
-    # except:
-    #   abort(422)
 
   # UPDATE 
   @app.route('/actors/<int:actor_id>', methods=['PATCH'])
   @requires_auth('patch:actor')
   def update_actor(token, actor_id):
     body = request.get_json()
-    # try:
+
     actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
     if actor is None:
       abort(404)
@@ -192,18 +163,12 @@ def create_app(test_config=None):
     actor.gender = body.get('gender')
 
     actor.update()
-    
-    # actors = []
-    # for actor in Actor.query.order_by(Actor.id).all():
-    #     actors.append(actor.format())
 
     return jsonify({
       'success': True,
       'actor': actor.format()
     })
 
-    # except:
-    #   abort(422)
 
 
   @app.errorhandler(400)
@@ -240,7 +205,7 @@ def create_app(test_config=None):
 
   return app
 
-APP = create_app()
+app = create_app()
 
 if __name__ == '__main__':
     APP.run(host='0.0.0.0', port=8080, debug=True)
